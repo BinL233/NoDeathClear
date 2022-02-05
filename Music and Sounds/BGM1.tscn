@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://BGM1.gd" type="Script" id=1]
+[ext_resource path="res://Music and Sounds/中村由利子 - 火宵の月・テーマ~ピアノソロ.mp3" type="AudioStream" id=2]
+
+[node name="BGM1" type="AudioStreamPlayer"]
+stream = ExtResource( 2 )
+autoplay = true
+script = ExtResource( 1 )

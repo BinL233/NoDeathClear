@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/onoken,RIN - Fluquor.mp3-4b6f3cae9a170dc236dddafb336e9cd0.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/onoken,RIN - Fluquor.mp3"
+dest_files=[ "res://.import/onoken,RIN - Fluquor.mp3-4b6f3cae9a170dc236dddafb336e9cd0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

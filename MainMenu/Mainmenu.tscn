@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://UI/方正琥珀繁体.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://MainMenu/Controls.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MainMenu/Mainmenu.gd" type="Script" id=3]
+[ext_resource path="res://UI/futur_b.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Music and Sounds/Tony O'Malley - Autumn Leaves.mp3" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+extra_spacing_char = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 21
+font_data = ExtResource( 4 )
+
+[node name="Mainmenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.243137, 0.243137, 0.243137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -72.0
+margin_top = -2.0
+margin_right = 72.0
+margin_bottom = 54.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start Game" type="Button" parent="Buttons"]
+margin_right = 144.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 1 )
+text = "Start Game"
+
+[node name="Controls" type="Button" parent="Buttons"]
+margin_top = 20.0
+margin_right = 144.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 2 )
+text = "Controls"
+
+[node name="Quit to Desktop" type="Button" parent="Buttons"]
+margin_top = 40.0
+margin_right = 144.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 3 )
+text = "Quit To Desktop"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -50.0
+margin_right = 89.0
+margin_bottom = -28.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.85098, 0.298039, 0.298039, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "No Death Clear"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -9.087
+autoplay = true
+
+[connection signal="pressed" from="Buttons/Start Game" to="." method="_on_Start_Game_pressed"]
+[connection signal="pressed" from="Buttons/Controls" to="." method="_on_Controls_pressed"]
+[connection signal="pressed" from="Buttons/Quit to Desktop" to="." method="_on_Quit_to_Desktop_pressed"]

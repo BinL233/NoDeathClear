@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/α·Pav - ζ.mp3-c11dc64ab6f40c7b6c0745d0c1861790.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/α·Pav - ζ.mp3"
+dest_files=[ "res://.import/α·Pav - ζ.mp3-c11dc64ab6f40c7b6c0745d0c1861790.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/平沢進 - 希求の门.mp3-69a9348a7eb5246f4f5f40a2938bfac8.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/平沢進 - 希求の门.mp3"
+dest_files=[ "res://.import/平沢進 - 希求の门.mp3-69a9348a7eb5246f4f5f40a2938bfac8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

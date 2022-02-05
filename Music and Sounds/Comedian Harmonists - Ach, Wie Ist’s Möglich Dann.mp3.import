@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Comedian Harmonists - Ach, Wie Ist’s Möglich Dann.mp3-f89a785045103849d4324ad885bd19b7.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Comedian Harmonists - Ach, Wie Ist’s Möglich Dann.mp3"
+dest_files=[ "res://.import/Comedian Harmonists - Ach, Wie Ist’s Möglich Dann.mp3-f89a785045103849d4324ad885bd19b7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

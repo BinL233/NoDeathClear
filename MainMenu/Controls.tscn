@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://MainMenu/Back.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MainMenu/微信图片_20210709075439.jpg" type="Texture" id=2]
+
+[node name="Controls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.243137, 0.243137, 0.243137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="微信图片_20210709075439" type="Sprite" parent="."]
+position = Vector2( 184, 88 )
+scale = Vector2( 0.152116, 0.152116 )
+texture = ExtResource( 2 )
+
+[node name="Back" parent="." instance=ExtResource( 1 )]

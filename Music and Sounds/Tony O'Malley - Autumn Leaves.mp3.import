@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Tony O'Malley - Autumn Leaves.mp3-2827c47797b7e76c3212e82b6acf3f23.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Tony O'Malley - Autumn Leaves.mp3"
+dest_files=[ "res://.import/Tony O'Malley - Autumn Leaves.mp3-2827c47797b7e76c3212e82b6acf3f23.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

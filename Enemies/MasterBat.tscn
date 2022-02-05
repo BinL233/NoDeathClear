@@ -1,0 +1,361 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://Enemies/MasterBat.png" type="Texture" id=1]
+[ext_resource path="res://Stats.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hurtbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/PlayerDetectionZone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/WanderController.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Hitboxes and Hurtboxes/Hitbox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Hitboxes and Hurtboxes/Softcollsion.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=8]
+[ext_resource path="res://Enemies/MasterBat.gd" type="Script" id=9]
+[ext_resource path="res://Effects/new_shader.shader" type="Shader" id=10]
+[ext_resource path="res://World/Whitelight.png" type="Texture" id=11]
+[ext_resource path="res://Music and Sounds/平沢進 - 希求の门.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Enemies/MasterBatLight.png" type="Texture" id=13]
+[ext_resource path="res://UI/GoldenHealthbar.tscn" type="PackedScene" id=14]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 10 )
+shader_param/glow_color = Color( 0.0784314, 0.266667, 0.666667, 1 )
+shader_param/emission_texture = ExtResource( 13 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 24 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 16, 24 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "Animation",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 7.84251
+height = 5.02747
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 2.47052
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 2.38462
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 2.39624
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 2.07416
+
+[sub_resource type="CircleShape2D" id=13]
+radius = 2.27164
+
+[sub_resource type="CircleShape2D" id=14]
+radius = 2.57618
+
+[sub_resource type="CircleShape2D" id=15]
+radius = 7.37307
+
+[sub_resource type="Animation" id=16]
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Environment" id=18]
+background_mode = 4
+glow_enabled = true
+glow_strength = 0.64
+glow_blend_mode = 0
+
+[sub_resource type="CircleShape2D" id=19]
+radius = 106.308
+
+[node name="MasterBat" type="KinematicBody2D"]
+script = ExtResource( 9 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 1 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Animation"
+frame = 3
+playing = true
+offset = Vector2( 0, -12 )
+
+[node name="Hurtbox" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0.157501, -11.3393 )
+scale = Vector2( 1.495, 0.906 )
+collision_layer = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0.157486, -12.5992 )
+shape = SubResource( 8 )
+
+[node name="Stats" parent="." instance=ExtResource( 2 )]
+max_health = 10
+
+[node name="Hitbox2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -2.93183, -9.29261 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox2" index="0"]
+position = Vector2( -5.65512, -18.652 )
+shape = SubResource( 9 )
+
+[node name="Hitbox3" parent="." instance=ExtResource( 6 )]
+position = Vector2( -3.98658, -3.16587 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox3" index="0"]
+position = Vector2( -5.65511, -18.3543 )
+shape = SubResource( 10 )
+
+[node name="Hitbox6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 8.90484, -12.3229 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox6" index="0"]
+position = Vector2( 0.297638, -15.9732 )
+shape = SubResource( 11 )
+
+[node name="Hitbox7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 10.6349, -5.34926 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox7" index="0"]
+position = Vector2( 0.0992126, -16.2709 )
+shape = SubResource( 12 )
+
+[node name="Hitbox5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 7.13604, 8.57653 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox5" index="0"]
+position = Vector2( -12.9968, -25.2992 )
+shape = SubResource( 13 )
+
+[node name="Hitbox4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4.88219, -4.56721 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox4" index="0"]
+position = Vector2( 0.396854, -11.9055 )
+shape = SubResource( 14 )
+
+[node name="Hitbox8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4.88219, -4.56721 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox8" index="0"]
+position = Vector2( 0.396854, -11.9055 )
+shape = SubResource( 14 )
+
+[node name="Softcollsion" parent="." instance=ExtResource( 7 )]
+scale = Vector2( 1.5, 1.5 )
+
+[node name="CollisionShape2D" parent="Softcollsion" index="0"]
+shape = SubResource( 15 )
+
+[node name="WanderController" parent="." instance=ExtResource( 5 )]
+
+[node name="BlinkAnimation" type="AnimationPlayer" parent="."]
+anims/Start = SubResource( 16 )
+anims/Stop = SubResource( 17 )
+
+[node name="ShadowSprite" type="Sprite" parent="."]
+texture = ExtResource( 8 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0.380444, -15.5111 )
+scale = Vector2( 6.10988, 5.64534 )
+texture = ExtResource( 11 )
+texture_scale = 0.07
+energy = 1.5
+mode = 2
+shadow_gradient_length = 3.0
+shadow_filter = 5
+shadow_filter_smooth = 3.0
+
+[node name="BattleBGM1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="ShadowTimer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 18 )
+
+[node name="Goldenhealthbar" parent="." instance=ExtResource( 14 )]
+position = Vector2( -28.7826, -43.8764 )
+scale = Vector2( 0.4, 0.325 )
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource( 4 )]
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+visible = false
+shape = SubResource( 19 )
+
+[node name="Hitbox9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 14.731, -0.0250101 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox9" index="0"]
+position = Vector2( -5.65511, -18.3543 )
+shape = SubResource( 10 )
+
+[node name="Hitbox10" parent="." instance=ExtResource( 6 )]
+position = Vector2( -2.91245, -0.680693 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox10" index="0"]
+position = Vector2( -5.65511, -18.3543 )
+shape = SubResource( 10 )
+
+[node name="Hitbox11" parent="." instance=ExtResource( 6 )]
+position = Vector2( -3.96357, -6.14652 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox11" index="0"]
+position = Vector2( -5.65511, -18.3543 )
+shape = SubResource( 10 )
+
+[node name="Hitbox12" parent="." instance=ExtResource( 6 )]
+position = Vector2( 15.9333, -6.93233 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox12" index="0"]
+position = Vector2( -5.65511, -18.3543 )
+shape = SubResource( 10 )
+
+[node name="Hitbox13" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2.95444, 2.58505 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox13" index="0"]
+position = Vector2( -5.65512, -18.652 )
+shape = SubResource( 9 )
+
+[node name="Hitbox14" parent="." instance=ExtResource( 6 )]
+position = Vector2( 7.17023, 2.64742 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox14" index="0"]
+position = Vector2( -5.65512, -18.652 )
+shape = SubResource( 9 )
+
+[node name="Hitbox15" parent="." instance=ExtResource( 6 )]
+position = Vector2( 5.81508, -11.7957 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hitbox15" index="0"]
+position = Vector2( -5.65512, -18.652 )
+shape = SubResource( 9 )
+
+[node name="Hitbox16" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1.82082, -11.3752 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="Hitbox17" parent="." instance=ExtResource( 6 )]
+position = Vector2( 10.0196, -11.6906 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="Hitbox18" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0.454369, -6.85542 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="Hitbox19" parent="." instance=ExtResource( 6 )]
+position = Vector2( 11.9116, -6.32986 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="Hitbox20" parent="." instance=ExtResource( 6 )]
+position = Vector2( 5.70996, -0.864033 )
+collision_layer = 0
+collision_mask = 4
+
+[connection signal="health_changed" from="." to="Goldenhealthbar" method="_on_MasterBat_health_changed"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
+[connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
+[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
+[connection signal="timeout" from="ShadowTimer" to="." method="_on_ShadowTimer_timeout"]
+
+[editable path="Hurtbox"]
+[editable path="Hitbox2"]
+[editable path="Hitbox3"]
+[editable path="Hitbox6"]
+[editable path="Hitbox7"]
+[editable path="Hitbox5"]
+[editable path="Hitbox4"]
+[editable path="Hitbox8"]
+[editable path="Softcollsion"]
+[editable path="WanderController"]
+[editable path="PlayerDetectionZone"]
+[editable path="Hitbox9"]
+[editable path="Hitbox10"]
+[editable path="Hitbox11"]
+[editable path="Hitbox12"]
+[editable path="Hitbox13"]
+[editable path="Hitbox14"]
+[editable path="Hitbox15"]

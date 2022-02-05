@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/m魔法-恢复-轻-005_爱给网_aigei_com.mp3-a95054530550490f8efee1ab89d6a3d7.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/m魔法-恢复-轻-005_爱给网_aigei_com.mp3"
+dest_files=[ "res://.import/m魔法-恢复-轻-005_爱给网_aigei_com.mp3-a95054530550490f8efee1ab89d6a3d7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
