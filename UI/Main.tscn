@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/TextureButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/src=http___pic.51yuansu.com_pic3_cover_03_25_11_5b7417353cf7d_610.jpg&refer=http___pic.51yuansu.png" type="Texture" id=2]
+
+[node name="Main" type="Control"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" parent="HBoxContainer" instance=ExtResource( 1 )]
+margin_right = 25.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 2 )

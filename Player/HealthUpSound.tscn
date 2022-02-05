@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player/HealthUpSound.gd" type="Script" id=1]
+[ext_resource path="res://Music and Sounds/m魔法-恢复-轻-005_爱给网_aigei_com.mp3" type="AudioStream" id=2]
+
+[node name="HealthUpSound" type="AudioStreamPlayer"]
+stream = ExtResource( 2 )
+autoplay = true
+script = ExtResource( 1 )
