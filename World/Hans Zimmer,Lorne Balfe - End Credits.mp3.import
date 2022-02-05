@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hans Zimmer,Lorne Balfe - End Credits.mp3-8a4726db858da3d1a7b5ea46e7ce6122.mp3str"
+
+[deps]
+
+source_file="res://World/Hans Zimmer,Lorne Balfe - End Credits.mp3"
+dest_files=[ "res://.import/Hans Zimmer,Lorne Balfe - End Credits.mp3-8a4726db858da3d1a7b5ea46e7ce6122.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
